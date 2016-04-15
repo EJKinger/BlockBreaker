@@ -11,6 +11,8 @@ public class MusicPlayer : MonoBehaviour {
 		if (!instantiated){
 			audio.Play();
 			instantiated = true;
+		} else {
+			GameObject.Destroy (gameObject);
 		}
 		
 	}
