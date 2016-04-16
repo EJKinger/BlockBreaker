@@ -2,21 +2,17 @@
 using System.Collections;
 
 public class MusicPlayer : MonoBehaviour {
+	static MusicPlayer instance = null;
 	
-	public static bool instantiated = false;
-	// Use this for initialization
-	void Start () {
-		AudioSource audio = GetComponent<AudioSource>();
-		GameObject.DontDestroyOnLoad(gameObject);
-		if (!instantiated){
-			audio.Play();
-			instantiated = true;
+	void Awake () {
+		if (instance != null){
+			Destroy (gameObject);
 		} else {
-			GameObject.Destroy (gameObject);
+			instance = this;
+			GameObject.DontDestroyOnLoad(gameObject);
 		}
-		
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		
