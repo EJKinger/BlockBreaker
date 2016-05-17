@@ -6,6 +6,8 @@ public class Brick : MonoBehaviour {
 	public int maxHits;
 	private int hits;
 	private LevelManager levelManager;
+	
+	public Sprite[] hitSprites;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +23,16 @@ public class Brick : MonoBehaviour {
 	void OnCollisionEnter2D () {
 		hits++;
 		if (hits >= maxHits){
-		  Destroy(gameObject);
+			Destroy(gameObject);
+		} else {
+			changeSprite ();
 		}
+
+  	}
+  	
+  	void changeSprite () {
+  	  int spriteIndex = hits - 1;
+  	  this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
   	}
   	
   	// TODO Remove this method when actual win conditions are completed
