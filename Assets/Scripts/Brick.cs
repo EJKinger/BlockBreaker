@@ -5,11 +5,18 @@ public class Brick : MonoBehaviour {
 
 	private int hits;
 	private LevelManager levelManager;
+	private bool isBreakable;
+	
+	public static int breakableCount = 0;
 	
 	public Sprite[] hitSprites;
 
 	// Use this for initialization
 	void Start () {
+		isBreakable = (this.tag == "Breakable");
+		if (isBreakable) {
+			breakableCount++;
+		}
 		levelManager = GameObject.FindObjectOfType<LevelManager>();
 		hits = 0;
 	}
@@ -20,7 +27,6 @@ public class Brick : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D () {
-	    bool isBreakable = (this.tag == "Breakable");
 	    if (isBreakable) {
 			handleHits ();
 	    }
@@ -30,7 +36,11 @@ public class Brick : MonoBehaviour {
 		hits++;
 		int maxHits = hitSprites.Length + 1;
 		if (hits >= maxHits){
+			breakableCount--;
 			Destroy(gameObject);
+			if (breakableCount <= 0){
+				Win ();
+			}
 		} else {
 			changeSprite ();
         }
@@ -44,7 +54,7 @@ public class Brick : MonoBehaviour {
   	}
   	
   	// TODO Remove this method when actual win conditions are completed
-  	void simulateWin() {
+  	void Win() {
   		levelManager.LoadNextLevel();
   	}
 }
