@@ -15,13 +15,20 @@ public class Ball : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {		
+	void Update () {
 		if (!hasStarted) {
 			if (Input.GetMouseButtonDown(0)){
 				hasStarted = true;
 				this.rigidbody2D.velocity = new Vector2 (3f, 8f);
 			}
 			this.transform.position = paddle.transform.position + paddleToBallVector;
+		}
+	}
+	
+	void OnCollisionEnter2D () {
+		if (this.rigidbody2D.velocity.x > -1 && this.rigidbody2D.velocity.x < 1) {
+			print ("changing");
+			this.rigidbody2D.velocity = new Vector2(3f, this.rigidbody2D.velocity.y);
 		}
 	}
 }
