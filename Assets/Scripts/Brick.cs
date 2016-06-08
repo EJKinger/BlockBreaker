@@ -38,6 +38,8 @@ public class Brick : MonoBehaviour {
 		if (hits >= maxHits){
 			breakableCount--;
 			Destroy(gameObject);
+			print ("breakable count is..");
+			print(breakableCount);
 			if (breakableCount <= 0){
 				Win ();
 			}
