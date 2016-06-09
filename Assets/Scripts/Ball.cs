@@ -27,8 +27,11 @@ public class Ball : MonoBehaviour {
 	
 	void OnCollisionEnter2D () {
 		if (this.rigidbody2D.velocity.x > -1 && this.rigidbody2D.velocity.x < 1) {
-			print ("changing");
 			this.rigidbody2D.velocity = new Vector2(3f, this.rigidbody2D.velocity.y);
+		}
+		
+		if (this.rigidbody2D.velocity.y > -1 && this.rigidbody2D.velocity.y < 1) {
+			this.rigidbody2D.velocity = new Vector2(5f, this.rigidbody2D.velocity.y);
 		}
 	}
 }
