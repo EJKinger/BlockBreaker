@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour {
 			this.rigidbody2D.velocity = new Vector2(3f, this.rigidbody2D.velocity.y);
 		}
 		
-		if (this.rigidbody2D.velocity.y > -1 && this.rigidbody2D.velocity.y < 1) {
+		if (this.rigidbody2D.velocity.y > -3 && this.rigidbody2D.velocity.y < 3) {
 			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, 5f);
 		}
 	}

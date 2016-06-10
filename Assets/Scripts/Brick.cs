@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Brick : MonoBehaviour {
 
-	private int hits;
+	private int hits = 0;
 	private LevelManager levelManager;
 	private bool isBreakable;
 	
@@ -18,7 +18,7 @@ public class Brick : MonoBehaviour {
 			breakableCount++;
 		}
 		levelManager = GameObject.FindObjectOfType<LevelManager>();
-		hits = 0;
+//		hits = 0;
 	}
 	
 	// Update is called once per frame
