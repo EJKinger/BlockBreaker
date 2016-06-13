@@ -31,7 +31,7 @@ public class Ball : MonoBehaviour {
 		}
 		
 		if (this.rigidbody2D.velocity.y > -3 && this.rigidbody2D.velocity.y < 3) {
-			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, 5f);
+			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, 8f);
 		}
 	}
 }
