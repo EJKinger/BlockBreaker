@@ -15,6 +15,7 @@ public class Brick : MonoBehaviour {
 	void Start () {
 		isBreakable = (this.tag == "Breakable");
 		if (isBreakable) {
+			print("breakablecount ++");
 			breakableCount++;
 		}
 		levelManager = GameObject.FindObjectOfType<LevelManager>();
