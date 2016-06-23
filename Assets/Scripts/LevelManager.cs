@@ -4,7 +4,6 @@ using System.Collections;
 public class LevelManager : MonoBehaviour {
 
 	void OnLevelWasLoaded(int level) {
-		print ("------------->");
 		Brick.breakableCount = 0;
 	}
 

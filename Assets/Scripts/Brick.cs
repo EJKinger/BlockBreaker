@@ -15,7 +15,6 @@ public class Brick : MonoBehaviour {
 	void Start () {
 		isBreakable = (this.tag == "Breakable");
 		if (isBreakable) {
-			print("breakablecount ++");
 			breakableCount++;
 		}
 		levelManager = GameObject.FindObjectOfType<LevelManager>();
@@ -39,8 +38,6 @@ public class Brick : MonoBehaviour {
 		if (hits >= maxHits){
 			breakableCount--;
 			Destroy(gameObject);
-			print ("breakable count is..");
-			print(breakableCount);
 			levelManager.BrickDestroyed();
 		} else {
 			changeSprite ();
