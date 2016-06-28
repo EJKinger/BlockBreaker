@@ -25,6 +25,9 @@ public class Ball : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D () {
+		if (hasStarted){
+			audio.Play();
+		}
 		if (this.rigidbody2D.velocity.x > -1 && this.rigidbody2D.velocity.x < 1) {
 			this.rigidbody2D.velocity = new Vector2(3f, this.rigidbody2D.velocity.y);
 		}
