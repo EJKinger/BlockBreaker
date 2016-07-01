@@ -29,11 +29,11 @@ public class Ball : MonoBehaviour {
 			audio.Play();
 		}
 		if (this.rigidbody2D.velocity.x > -1 && this.rigidbody2D.velocity.x < 1) {
-			this.rigidbody2D.velocity = new Vector2(3f, this.rigidbody2D.velocity.y);
+			this.rigidbody2D.velocity = new Vector2(3f, 8f);
 		}
 		
 		if (this.rigidbody2D.velocity.y > -3 && this.rigidbody2D.velocity.y < 3) {
-			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x, 8f);
+			this.rigidbody2D.velocity = new Vector2(3f, 8f);
 		}
 	}
 }
