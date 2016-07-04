@@ -36,4 +36,9 @@ public class Ball : MonoBehaviour {
 			this.rigidbody2D.velocity = new Vector2(3f, 8f);
 		}
 	}
+	
+	public void AutoStart () {
+		hasStarted = true;
+		this.rigidbody2D.velocity = new Vector2 (3f, 8f);
+	}
 }

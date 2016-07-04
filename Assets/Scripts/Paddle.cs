@@ -9,6 +9,9 @@ public class Paddle : MonoBehaviour {
 	
 	void Start () {
 		ball = GameObject.FindObjectsOfType<Ball>()[0];
+		if (AutoPlay){
+			ball.AutoStart();
+		}
 	}
 	void Update () {
 		
