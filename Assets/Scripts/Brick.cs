@@ -9,6 +9,7 @@ public class Brick : MonoBehaviour {
 	
 	public AudioClip crack;
 	public static int breakableCount = 0;
+	public GameObject smoke;
 	
 	public Sprite[] hitSprites;
 
@@ -28,6 +29,7 @@ public class Brick : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D () {
+		smoke.particleSystem.Play();
 		AudioSource.PlayClipAtPoint(crack, transform.position, 0.04f);
 	    if (isBreakable) {
 			handleHits ();
