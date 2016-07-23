@@ -29,6 +29,8 @@ public class Brick : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D () {
+		print("smoke stuff");
+		smoke.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
 		smoke.particleSystem.Play();
 		AudioSource.PlayClipAtPoint(crack, transform.position, 0.04f);
 	    if (isBreakable) {
