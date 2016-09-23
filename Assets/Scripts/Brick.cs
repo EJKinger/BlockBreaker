@@ -29,9 +29,9 @@ public class Brick : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D () {
-		print("smoke stuff");
 		smoke.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
-		smoke.particleSystem.Play();
+		smoke.GetComponent<ParticleSystem>().Play();
+//		Instantiate (smoke, this.transform.position, Quaternion.identity);
 		AudioSource.PlayClipAtPoint(crack, transform.position, 0.04f);
 	    if (isBreakable) {
 			handleHits ();
@@ -43,6 +43,10 @@ public class Brick : MonoBehaviour {
 		int maxHits = hitSprites.Length + 1;
 		if (hits >= maxHits){
 			breakableCount--;
+			print ("somke stuf");
+//			Instantiate (smoke, this.transform.position, Quaternion.identity);
+			smoke.GetComponent<ParticleSystem>().Play();
+			print (gameObject.transform.position);
 			Destroy(gameObject);
 			levelManager.BrickDestroyed();
 		} else {

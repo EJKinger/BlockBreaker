@@ -11,7 +11,7 @@ public class Ball : MonoBehaviour {
 	void Start () {
 		paddle = GameObject.FindObjectOfType<Paddle>();
 		paddleToBallVector = this.transform.position - paddle.transform.position;
-		audio.volume = 0.04f;
+		GetComponent<AudioSource>().volume = 0.04f;
 	}
 	
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class Ball : MonoBehaviour {
 		if (!hasStarted) {
 			if (Input.GetMouseButtonDown(0)){
 				hasStarted = true;
-				this.rigidbody2D.velocity = new Vector2 (3f, 8f);
+				this.GetComponent<Rigidbody2D>().velocity = new Vector2 (3f, 8f);
 			}
 			this.transform.position = paddle.transform.position + paddleToBallVector;
 		}
@@ -27,19 +27,19 @@ public class Ball : MonoBehaviour {
 	
 	void OnCollisionEnter2D () {
 		if (hasStarted){
-			audio.Play();
+			GetComponent<AudioSource>().Play();
 		}
-		if (this.rigidbody2D.velocity.x > -1 && this.rigidbody2D.velocity.x < 1) {
-			this.rigidbody2D.velocity = new Vector2(3f, 8f);
+		if (this.GetComponent<Rigidbody2D>().velocity.x > -1 && this.GetComponent<Rigidbody2D>().velocity.x < 1) {
+			this.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 8f);
 		}
 		
-		if (this.rigidbody2D.velocity.y > -3 && this.rigidbody2D.velocity.y < 3) {
-			this.rigidbody2D.velocity = new Vector2(3f, 8f);
+		if (this.GetComponent<Rigidbody2D>().velocity.y > -3 && this.GetComponent<Rigidbody2D>().velocity.y < 3) {
+			this.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 8f);
 		}
 	}
 	
 	public void AutoStart () {
 		hasStarted = true;
-		this.rigidbody2D.velocity = new Vector2 (3f, 8f);
+		this.GetComponent<Rigidbody2D>().velocity = new Vector2 (3f, 8f);
 	}
 }
